@@ -1,0 +1,30 @@
+{
+  "name": "allezapi",
+  "version": "0.0.1",
+  "description": "AllezAPI is an easy-to-use API organised around REST: it utilises aggregated data relating to the Tour de France.",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gcarter89/allezAPI.git"
+  },
+  "keywords": [
+    "api",
+    "sports"
+  ],
+  "author": "gcarter",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gcarter89/allezAPI/issues"
+  },
+  "homepage": "https://github.com/gcarter89/allezAPI#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jest": "^26.6.3"
+  },
+  "devDependencies": {
+    "prisma": "^2.21.2"
+  }
+}
