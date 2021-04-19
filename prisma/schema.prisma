@@ -3,9 +3,42 @@
 
 datasource db {
   provider = "postgresql"
+  // include a url for establishing a connection to your database in your .env file
   url      = env("DATABASE_URL")
 }
 
 generator client {
   provider = "prisma-client-js"
+  // this produces the preview feature that allows for a number of relations to be counted and expressed in a query.
+  previewFeatures = ["selectRelationCount"]
+}
+
+model Rider {
+  id              Int    @id @default(autoincrement())
+  firstName       String
+  lastName        String
+  nationality     String @db.VarChar(3)
+  gcWins          Tour[] @relation("gcWins")
+  komWins         Tour[] @relation("komWins")
+  pointsWins      Tour[] @relation("pointsWins")
+  intSprintWins   Tour[] @relation("intSprintWins")
+  youngRiderWins  Tour[] @relation("youngRiderWins")
+  combinationWins Tour[] @relation("combinationWins")
+}
+
+model Tour {
+  id                    Int    @id @default(autoincrement())
+  year                  Int    @unique
+  gcWinnerId            Int?
+  gcWinner              Rider?   @relation(name: "gcWins", fields: [gcWinnerId], references: [id])
+  komWinnerId           Int?
+  komWinner             Rider?   @relation(name: "komWins", fields: [komWinnerId], references: [id])
+  pointsWinnerId        Int?
+  pointsWinner          Rider?   @relation(name: "pointsWins", fields: [pointsWinnerId], references: [id])
+  intSprintWinnerId     Int?
+  intSprintWinner       Rider?   @relation(name: "intSprintWins", fields: [intSprintWinnerId], references: [id])
+  youngRiderWinnerId    Int?
+  youngRiderWinner      Rider?   @relation(name: "youngRiderWins", fields: [youngRiderWinnerId], references: [id])
+  combinationWinnerId   Int?
+  combinationWinner     Rider?   @relation(name: "combinationWins", fields: [combinationWinnerId], references: [id])
 }
