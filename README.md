@@ -27,7 +27,7 @@ To install and utilise this repository, the following is required:
 1. ```npm install```
 2. Create a ```.env``` file with the ```DATABASE_URL``` variable set to your PostgreSQL database: ```DATABASE_URL="postgresql://USER:PASSWORD@HOST:PORT/DATABASE?schema=SCHEMA"```. If you require further guidance, please follow the Prisma documentation here: https://www.prisma.io/docs/getting-started/setup-prisma/add-to-existing-project-node-postgres
 3. ```npx generate```
-4. ```npx prisma migrate dev``
+4. ```npx prisma migrate dev```
 5. Seed your database with sample data in the following order (the order is important due to how the **rider** and **tour** models are related to eachother):
     * ```node ./seeds/rider_seed.js```
     * ```node ./seeds/tour_seed.js```
