@@ -14,7 +14,7 @@ This repository is a JavaScript implementation of the **Prisma** ORM library to 
   * A testing suite using the **Jest** library to validate actual output against expected output.
 
 
-### Prerequisites
+## Prerequisites
 
 To install and utilise this repository, the following is required:
 
